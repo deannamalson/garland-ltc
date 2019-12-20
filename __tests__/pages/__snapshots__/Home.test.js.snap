@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render Home correctly 1`] = `
+<div>
+  <Head>
+    <title>
+      Home
+    </title>
+    <link
+      href="/favicon.ico"
+      rel="icon"
+    />
+  </Head>
+  <Header />
+  <Hero />
+  <OurMission />
+  <LicenseToCarry />
+  <Contact />
+  <Footer />
+</div>
+`;

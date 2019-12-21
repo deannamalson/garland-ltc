@@ -1,0 +1,20 @@
+.hero {
+  padding: 2rem;
+  height: 85vh;
+  width: 100vw;
+  color: $text-white;
+  background: linear-gradient(
+      rgba(0, 0, 0, 0),
+      rgba(0, 0, 0, 0.6),
+      rgba(0, 0, 0, 0.9)
+    ),
+    url("/static/hero.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  font-weight: 700;
+}
+
+.hero__title {
+  margin: 0;
+  font-size: 5rem;
+}

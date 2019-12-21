@@ -1,4 +1,4 @@
-$font-size: 50px;
-.example {
-  font-size: $font-size;
-}
+@import "./base/base";
+@import "./base/variables";
+@import "./components/link";
+@import "./components/hero";

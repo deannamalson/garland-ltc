@@ -1,4 +1,5 @@
 import React from "react";
+import { Grid } from "@material-ui/core";
 import InfoCard from "./InfoCard";
 
 const CardsList = () => {
@@ -25,11 +26,13 @@ const CardsList = () => {
     }
   ];
   return (
-    <div>
+    <Grid container spacing={3} direction="row" alignItems="flex-start">
       {cardsData.map(cardData => (
-        <InfoCard key={cardData.title} {...cardData} />
+        <Grid item md={6} key={cardData.title}>
+          <InfoCard {...cardData} />
+        </Grid>
       ))}
-    </div>
+    </Grid>
   );
 };
 

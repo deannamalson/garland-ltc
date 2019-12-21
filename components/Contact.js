@@ -1,4 +1,5 @@
 import React from "react";
+import { Grid } from "@material-ui/core";
 import ContactCard from "./cards/ContactCard";
 
 const Contact = () => {
@@ -31,9 +32,20 @@ const Contact = () => {
         information, feel free to contact me at the phone or email address
         above.
       </p>
-      {contactData.map(data => (
-        <ContactCard key={data.text} {...data} />
-      ))}
+      <Grid container spacing={3}>
+        {contactData.map(data => (
+          <Grid
+            container
+            item
+            sm={6}
+            justify="center"
+            alignItems="center"
+            key={data.text}
+          >
+            <ContactCard {...data} />
+          </Grid>
+        ))}
+      </Grid>
     </div>
   );
 };

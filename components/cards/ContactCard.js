@@ -1,9 +1,9 @@
 import React from "react";
 
 const ContactCard = ({ icon, text }) => (
-  <div>
+  <p>
     {icon}-{text}
-  </div>
+  </p>
 );
 
 export default ContactCard;

@@ -1,12 +1,12 @@
 import React from "react";
 import Head from "next/head";
 
-import Header from "../components/global/Header";
+import Header from "../components/layout/Header";
 import Hero from "../components/Hero";
 import LicenseToCarry from "../components/LicenseToCarry";
-import OurMission from "../components/OurMission";
+import PrivateLessons from "../components/PrivateLessons";
 import Contact from "../components/Contact";
-import Footer from "../components/global/Footer";
+import Footer from "../components/layout/Footer";
 import { Box, Container } from "@material-ui/core";
 
 const Home = () => (
@@ -17,10 +17,11 @@ const Home = () => (
     </Head>
 
     {/* <Header /> */}
+    <Header />
     <Hero />
     <Container>
-      <OurMission />
       <LicenseToCarry />
+      <PrivateLessons />
       <Contact />
     </Container>
     <Footer />

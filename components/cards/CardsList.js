@@ -23,7 +23,7 @@ const StepOneContent = () => {
         These requirements can be fulfilled in an online course (cost: $49) or
         in a class with a qualified instructor.
       </Typography>
-      <Typography variant="p">
+      <Typography>
         (We do not have any classroom sessions scheduled at this time. Special
         arrangements available upon request.)
       </Typography>

@@ -1,11 +1,12 @@
 import React, { useContext, useRef, useEffect } from "react";
-import NavContext from "../../context/nav-context";
 import { Container } from "@material-ui/core";
+import NavContext from "../../context/nav-context";
+import { getSectionOuterHeight, getSectionInView } from "../../utils/helpers";
 import LicenseToCarry from "../LicenseToCarry";
 import PrivateLessons from "../PrivateLessons";
 import Contact from "../Contact";
 
-const NavContent = ({ headerShowHeight }) => {
+const NavContent = ({ headerShowHeight, scrollOffset }) => {
   const { dispatch } = useContext(NavContext);
 
   // Set up section refs
@@ -16,31 +17,23 @@ const NavContent = ({ headerShowHeight }) => {
   // sets up listeners to handle setting section positions and active tabs
   useEffect(() => {
     let sections = [];
-    let activeSection = -1;
+    let currentActive = -1;
     let headerVisible = false;
-
-    // Calculate outerHeight
-    const outerHeight = el => {
-      const componentEl = el.childNodes[0]; // component is first child of ref div
-      const height = componentEl.offsetHeight;
-      const { marginTop, marginBottom } = window.getComputedStyle(componentEl);
-      return height + parseInt(marginTop) + parseInt(marginBottom);
-    };
 
     // On resize - update sections data
     const handleResize = () => {
       sections = [
         {
           top: section1.current.offsetTop,
-          height: outerHeight(section1.current)
+          height: getSectionOuterHeight(section1.current)
         },
         {
           top: section2.current.offsetTop,
-          height: outerHeight(section2.current)
+          height: getSectionOuterHeight(section2.current)
         },
         {
           top: section3.current.offsetTop,
-          height: outerHeight(section3.current)
+          height: getSectionOuterHeight(section3.current)
         }
       ];
       dispatch({ type: "UPDATE_SECTIONS", newData: sections });
@@ -48,9 +41,6 @@ const NavContent = ({ headerShowHeight }) => {
 
     // On scroll - check active tab
     const handleScroll = () => {
-      const offset = 400;
-      let newActive = -1;
-
       // Check for header scroll in
       if (window.scrollY > headerShowHeight) {
         if (!headerVisible) {
@@ -64,22 +54,11 @@ const NavContent = ({ headerShowHeight }) => {
         }
       }
 
-      // Check for active sections
-      sections.forEach((section, index) => {
-        if (section) {
-          // TODO - get view height and calc 50% or more?
-          const belowTop = window.scrollY > section.top - offset;
-          const aboveBottom =
-            window.scrollY < section.top + section.height - offset;
-          if (belowTop && aboveBottom) {
-            newActive = index;
-          }
-        }
-      });
-      // Update active section on change
-      if (newActive !== activeSection) {
+      // Check for active section change
+      const newActive = getSectionInView(sections, scrollOffset);
+      if (newActive !== currentActive) {
         dispatch({ type: "UPDATE_ACTIVE", newActive });
-        activeSection = newActive;
+        currentActive = newActive;
       }
     };
 
@@ -114,8 +93,9 @@ const NavContent = ({ headerShowHeight }) => {
 };
 
 NavContent.defaultProps = {
-  // TODO - calculate this based on view height?
-  headerShowHeight: 300
+  // TODO - calculate both based on view height?
+  headerShowHeight: 300,
+  scrollOffset: 400
 };
 
 export default NavContent;

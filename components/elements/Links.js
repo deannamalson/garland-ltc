@@ -25,13 +25,29 @@ const useStyles = makeStyles(theme => ({
       left: 0,
       width: "100%"
     }
+  },
+  active: {
+    "&::after": {
+      display: "block",
+      position: "absolute",
+      bottom: 0,
+      width: "100%",
+      left: 0,
+      height: "2px",
+      background: theme.palette.secondary.main,
+      content: "''"
+    }
   }
 }));
 
-const NavLink = ({ text }) => {
+const NavLink = ({ text, id, isActive, handleClick }) => {
   const classes = useStyles();
   return (
-    <Link className={classes.link} underline="none">
+    <Link
+      onClick={() => handleClick(id)}
+      className={`${classes.link} ${isActive ? classes.active : ""}`}
+      underline="none"
+    >
       <Box color="white">{text}</Box>
     </Link>
   );

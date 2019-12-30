@@ -9,7 +9,7 @@ const LicenseToCarry = () => {
     "ammunition and the basics of marksmanship"
   ];
   return (
-    <Box mt={8}>
+    <Box mt={8} mb={20}>
       <Typography variant="h2" color="primary" gutterBottom={true}>
         Private Lessons
       </Typography>

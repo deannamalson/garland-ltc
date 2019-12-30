@@ -14,7 +14,7 @@ const Contact = () => {
     }
   ];
   return (
-    <Box mt={8} mb={8}>
+    <Box mt={8} mb={40}>
       <Typography variant="h2" color="primary" gutterBottom={true}>
         Contact
       </Typography>

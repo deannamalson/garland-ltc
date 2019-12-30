@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useContext } from "react";
+import NavContext from "../../context/nav-context";
 import {
   makeStyles,
   AppBar,
@@ -18,32 +19,34 @@ const useStyles = makeStyles(() => ({
   }
 }));
 
-const Header = ({ scrollInHeight }) => {
+const Header = () => {
   const classes = useStyles();
+  const { state } = useContext(NavContext);
   // Set up state
-  const [showHeader, setShowHeader] = useState(false);
+  // const [showHeader, setShowHeader] = useState(false);
 
-  useEffect(() => {
-    // Check if scrolled to designated point
-    const handleScroll = () => {
-      if (window.scrollY > scrollInHeight) {
-        setShowHeader(true);
-      } else {
-        setShowHeader(false);
-      }
-    };
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     if (window.scrollY > scrollInHeight) {
+  //       setShowHeader(true);
+  //     } else {
+  //       setShowHeader(false);
+  //     }
+  //   };
 
-    // Set up event listener
-    document.addEventListener("scroll", handleScroll);
+  //   // Set up event listener
+  //   document.addEventListener("scroll", handleScroll);
 
-    // Clean up event listener
-    return () => {
-      document.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+  //   // clean up
+  //   return () => {
+  //     document.removeEventListener("scroll", handleScroll);
+  //   };
+  // }, []);
 
   return (
-    <AppBar className={`${classes.navStyles} ${showHeader && classes.show}`}>
+    <AppBar
+      className={`${classes.navStyles} ${state.showHeader ? classes.show : ""}`}
+    >
       <Toolbar>
         <Box flexGrow={1}>
           <Typography variant="h6">GARLAND CHL</Typography>
@@ -52,10 +55,6 @@ const Header = ({ scrollInHeight }) => {
       </Toolbar>
     </AppBar>
   );
-};
-
-Header.defaultProps = {
-  scrollInHeight: 200
 };
 
 export default Header;

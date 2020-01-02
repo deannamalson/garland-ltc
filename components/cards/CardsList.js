@@ -57,9 +57,9 @@ const CardsList = () => {
         </Box>
       ),
       action: {
-        href: "#",
-        linkText: "Schedule Training & Proficiency",
-        anchor: true
+        anchor: true,
+        href: 2, // anchor link id 2
+        linkText: "Schedule Training & Proficiency"
       }
     },
     {

@@ -20,14 +20,7 @@ const Contact = () => {
       </Typography>
       <Grid container spacing={3}>
         {contactData.map(data => (
-          <Grid
-            container
-            item
-            sm={6}
-            justify="center"
-            alignItems="center"
-            key={data.text}
-          >
+          <Grid container item md={6} key={data.text}>
             <ContactCard {...data} />
           </Grid>
         ))}

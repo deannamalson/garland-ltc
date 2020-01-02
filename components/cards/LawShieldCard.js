@@ -1,6 +1,7 @@
 import React from "react";
 import { makeStyles, Box, Typography, Grid, Link } from "@material-ui/core";
 import PromoCode from "./PromoCode";
+import LazyBackground from "../vendors/LazyBackground";
 import { CTALink } from "../elements/Links";
 
 const useStyles = makeStyles(theme => ({
@@ -28,22 +29,29 @@ const LawShieldCard = () => {
       <Grid container direction="row">
         {/* Background image and title */}
         <Grid container item md={6}>
-          <Box
-            className={classes.bannerImg}
-            display="flex"
-            flexDirection="column"
-            justifyContent="center"
-            minHeight={200}
-            height={1}
-            width={1}
-            p={2}
-            color="white"
+          <LazyBackground
+            backgroundImg="/static/lawshield_pic.jpg"
+            gradient={`linear-gradient(
+            rgba(0, 0, 0, 0.25),
+            rgba(0, 0, 0, 0.75)
+          )`}
           >
-            <Typography variant="h3">Protect Your Rights</Typography>
-            <Typography variant="h5" gutterBottom={true}>
-              Save on legal counsel with Texas Lawshield
-            </Typography>
-          </Box>
+            <Box
+              display="flex"
+              flexDirection="column"
+              justifyContent="center"
+              minHeight={200}
+              height={1}
+              width={1}
+              p={2}
+              color="white"
+            >
+              <Typography variant="h3">Protect Your Rights</Typography>
+              <Typography variant="h5" gutterBottom={true}>
+                Save on legal counsel with Texas Lawshield
+              </Typography>
+            </Box>
+          </LazyBackground>
         </Grid>
         {/* Text */}
         <Grid item md={6}>

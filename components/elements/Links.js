@@ -5,9 +5,12 @@ const useStyles = makeStyles(theme => ({
   link: {
     display: "inline-block",
     position: "relative",
-    padding: "10px 15px",
+    width: "100%",
+    padding: "1rem",
+    margin: "0.5rem",
     textDecoration: "none",
     textTransform: "uppercase",
+    textAlign: "center",
     letterSpacing: "0.15em",
     cursor: "pointer",
     "&::after": {
@@ -22,8 +25,8 @@ const useStyles = makeStyles(theme => ({
       content: "''"
     },
     "&:hover::after": {
-      left: 0,
-      width: "100%"
+      left: "25%",
+      width: "50%"
     }
   },
   active: {
@@ -31,16 +34,33 @@ const useStyles = makeStyles(theme => ({
       display: "block",
       position: "absolute",
       bottom: 0,
-      width: "100%",
-      left: 0,
+      width: "50%",
+      left: "25%",
       height: "2px",
       background: theme.palette.secondary.main,
       content: "''"
     }
+  },
+  [theme.breakpoints.up("md")]: {
+    link: {
+      width: "auto",
+      padding: "10px 15px",
+      margin: 0,
+      "&:hover::after": {
+        left: 0,
+        width: "100%"
+      }
+    },
+    active: {
+      "&::after": {
+        width: "100%",
+        left: 0
+      }
+    }
   }
 }));
 
-const NavLink = ({ text, id, isActive, handleClick }) => {
+const NavLink = ({ text, id, isActive, handleClick, color }) => {
   const classes = useStyles();
   return (
     <Link
@@ -48,7 +68,7 @@ const NavLink = ({ text, id, isActive, handleClick }) => {
       className={`${classes.link} ${isActive ? classes.active : ""}`}
       underline="none"
     >
-      <Box color="white">{text}</Box>
+      <Box color={color ? color : "white"}>{text}</Box>
     </Link>
   );
 };

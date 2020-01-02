@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   makeStyles,
   Typography,
@@ -7,6 +7,7 @@ import {
   CardActions,
   Link
 } from "@material-ui/core";
+import NavContext from "../../context/nav-context";
 
 const useStyles = makeStyles(theme => ({
   cardWrapper: {
@@ -23,7 +24,16 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const InfoCard = ({ title, text, action }) => {
+  const { state } = useContext(NavContext);
   const classes = useStyles();
+
+  const handleAnchorLinkClick = () => {
+    window.scrollTo({
+      top: state.sections[action.href].top - 75,
+      behavior: "smooth"
+    });
+  };
+
   return (
     <Card className={classes.cardWrapper}>
       <CardContent className={classes.cardBody}>
@@ -36,7 +46,7 @@ const InfoCard = ({ title, text, action }) => {
         <CardActions className={classes.cardFooter}>
           <Typography variant="h6">
             {action.anchor ? (
-              <Link href={action.href} underline="always">
+              <Link onClick={handleAnchorLinkClick} underline="always">
                 {action.linkText}
               </Link>
             ) : (

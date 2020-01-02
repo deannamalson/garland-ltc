@@ -1,38 +1,46 @@
 import React from "react";
-import { makeStyles, Box, Typography } from "@material-ui/core";
+import { useMediaQuery, makeStyles, Box, Typography } from "@material-ui/core";
+import LazyBackground from "./vendors/LazyBackground";
 import NavLinks from "./layout/NavLinks";
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles(theme => ({
   hero: {
-    background: `linear-gradient(
-        rgba(0, 0, 0, 0),
-        rgba(0, 0, 0, 0.6),
-        rgba(0, 0, 0, 0.9)
-      ),
-      url("/static/hero.jpg")`,
-    backgroundSize: "cover",
-    backgroundRepeat: "no-repeat"
+    [theme.breakpoints.up("md")]: {
+      height: "85vh",
+      marginTop: 0
+    }
   }
 }));
 
 const Hero = () => {
   const classes = useStyles();
+  const desktopDevice = useMediaQuery(theme => theme.breakpoints.up("md"));
   return (
-    <Box
-      className={classes.hero}
-      display="flex"
-      flexDirection="column"
-      justifyContent="center"
-      alignItems="center"
-      width={1}
-      height="85vh"
-      p={2}
-      color="white"
-      fontWeight="fontWeightBold"
+    <LazyBackground
+      backgroundImg="/static/hero.jpg"
+      gradient={`linear-gradient(
+      rgba(0, 0, 0, 0),
+      rgba(0, 0, 0, 0.6),
+      rgba(0, 0, 0, 0.9)
+    )`}
     >
-      <Typography variant="h1">GARLAND CHL</Typography>
-      <NavLinks />
-    </Box>
+      <Box
+        className={classes.hero}
+        display="flex"
+        flexDirection="column"
+        justifyContent="center"
+        alignItems="center"
+        width={1}
+        height="60vh"
+        mt="70px"
+        p={2}
+        color="white"
+        fontWeight="fontWeightBold"
+      >
+        <Typography variant="h1">GARLAND CHL</Typography>
+        {desktopDevice && <NavLinks />}
+      </Box>
+    </LazyBackground>
   );
 };
 

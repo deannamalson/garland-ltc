@@ -10,7 +10,7 @@ const LicenseToCarry = () => {
   ];
   return (
     <Box mt={8} mb={20}>
-      <Typography variant="h2" color="primary" gutterBottom={true}>
+      <Typography variant="h2" gutterBottom={true}>
         Private Lessons
       </Typography>
       <Typography gutterBottom={true}>

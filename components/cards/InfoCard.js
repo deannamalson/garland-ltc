@@ -20,6 +20,9 @@ const useStyles = makeStyles(theme => ({
   cardFooter: {
     padding: theme.spacing(2),
     justifyContent: "center"
+  },
+  action: {
+    cursor: "pointer"
   }
 }));
 
@@ -46,7 +49,11 @@ const InfoCard = ({ title, text, action }) => {
         <CardActions className={classes.cardFooter}>
           <Typography variant="h6">
             {action.anchor ? (
-              <Link onClick={handleAnchorLinkClick} underline="always">
+              <Link
+                className={classes.action}
+                onClick={handleAnchorLinkClick}
+                underline="always"
+              >
                 {action.linkText}
               </Link>
             ) : (

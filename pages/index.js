@@ -20,8 +20,8 @@ const Home = () => {
   return (
     <Box>
       <Head>
-        <title>Home</title>
-        <link rel="icon" href="/favicon.ico" />
+        <title>Garland CHL</title>
+        {/* <link rel="icon" href="/favicon.ico" /> */}
       </Head>
 
       <NavContext.Provider value={{ state, dispatch }}>

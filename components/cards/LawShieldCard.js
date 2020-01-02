@@ -65,9 +65,9 @@ const LawShieldCard = () => {
             <Typography gutterBottom={true}>
               Founded by lawyers who are also Texas License to Carry
               instructors, Texas Lawshield offers several programs for
-              individuals with and without License To Carry permits. At a cost
-              of only $10.95 a month, all of your legal fees are covered for as
-              long as you stay in the program.
+              individuals with and without LTC permits. At a cost of only $10.95
+              a month, all of your legal fees are covered for as long as you
+              stay in the program.
             </Typography>
             <Typography gutterBottom={true}>
               Lawyers that specialize in self-defense law may charge $800 -

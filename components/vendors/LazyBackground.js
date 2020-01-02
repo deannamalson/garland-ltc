@@ -24,7 +24,12 @@ const LazyBackground = props => {
     imageLoader.onload = () => {
       setSrc(imageLoader.src);
     };
-  }, [src]);
+    return () => {
+      if (imageLoader) {
+        imageLoader.onload = null;
+      }
+    };
+  }, []);
   return (
     <div style={Object.assign({}, loadingStyles, src ? loadedStyles : {})}>
       {props.children}

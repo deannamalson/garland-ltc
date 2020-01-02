@@ -6,7 +6,7 @@ import { Box, Typography } from "@material-ui/core";
 const LicenseToCarry = () => (
   <Box mt={8}>
     {/* Header */}
-    <Typography variant="h2" color="primary" gutterBottom={true}>
+    <Typography variant="h2" gutterBottom={true}>
       License to Carry
     </Typography>
 

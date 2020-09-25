@@ -22,7 +22,7 @@ const Contact = () => {
       </Typography>
       <Typography gutterBottom={true}>
         John Coulton has been a Texas Concealed Carry / License to Carry
-        instructor since the program's conception, teaching and qualifying
+        instructor since the program's inception, teaching and qualifying
         thousands of students to date. As an avid hunter and gun enthusiast, he
         enjoys sharing his decades of experience and enthusiasm for the sport of
         shooting with others.

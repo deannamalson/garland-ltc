@@ -6,12 +6,14 @@ const Contact = () => {
   const contactData = [
     {
       icon: "phone",
-      text: "(469) 233-3943"
+      text1: "(469) ",
+      text2: "233-3943",
     },
     {
       icon: "email",
-      text: "jxcoulton@verizon.net"
-    }
+      text1: "jxcoulton",
+      text2: "@verizon.net",
+    },
   ];
   return (
     <Box mt={8} mb={40}>
@@ -40,8 +42,8 @@ const Contact = () => {
         </Typography>
       </Box>
       <Grid container spacing={3}>
-        {contactData.map(data => (
-          <Grid container item md={6} key={data.text}>
+        {contactData.map((data) => (
+          <Grid container item md={6} key={data.icon}>
             <ContactCard {...data} />
           </Grid>
         ))}

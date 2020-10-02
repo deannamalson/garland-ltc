@@ -1,7 +1,5 @@
 import React from "react";
 import Document, { Head, Main, NextScript } from "next/document";
-import { useEffect } from "react";
-import { useRouter } from "next/router";
 import { ServerStyleSheets } from "@material-ui/core/styles";
 import theme from "../themes/theme";
 

@@ -20,7 +20,7 @@ const StepOneContent = () => {
       <Typography>This course includes:</Typography>
       <DetailsList list={list} />
       <Typography gutterBottom={true}>
-        These requirements can be fulfilled in an online course (cost: $49) or
+        These requirements can be fulfilled in an online course (cost: $49.99) or
         in a class with a qualified instructor.
       </Typography>
       <Typography>
@@ -52,7 +52,7 @@ const CardsList = () => {
             Please contact us to schedule the training and proficiency.
           </Typography>
           <Typography>
-            Cost: $40 per person (range fees not included)
+            Cost: $50 per person (range fees not included)
           </Typography>
         </Box>
       ),
